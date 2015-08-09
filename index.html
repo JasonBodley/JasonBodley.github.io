@@ -17,7 +17,7 @@
       <div class="wrapper">
          <header>
             <h1 class="center">Jason Bodley</h1>
-            <img src="img/me.jpg" alt="Me!" width="140px" height="140px" class="img-circle center pad no-invert">
+            <img id="image" src="img/me.jpg" alt="Me!" width="140px" height="140px" class="img-circle center pad">
             
             <div class="center pad">
             <button type="button" class="btn btn-link" aria-label="Left Align">
@@ -60,14 +60,14 @@
       <script src="javascripts/scale.fix.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
       <script>
-      	$(".no-invert").click(function() {
+      	$("#image").click(function() {
 		    	var x = $("html");
 		    	if (x.hasClass("invert")) {
 			    	x.removeClass("invert").addClass("no-invert");
-			    	document.getElementById('html').style.webkitTransform = 'invert(0%)';
+			    	$(this).removeClass("invert").addClass("no-invert");
 		    	} else {
 			    	x.removeClass("no-invert").addClass("invert");
-			    	document.getElementById('html').style.webkitTransform = 'invert(100%)';
+			    	$(this).removeClass("no-invert").addClass("invert");
 		    	}
       	});
       </script>
