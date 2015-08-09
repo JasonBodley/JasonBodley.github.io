@@ -95,6 +95,11 @@ img {
   max-width:100%;
 }
 
+img:active {
+	border: 3px solid;
+	border-color: #888;
+}
+
 header {
   width:270px;
   float:left;
