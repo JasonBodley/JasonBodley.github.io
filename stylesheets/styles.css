@@ -99,10 +99,8 @@ header {
   width:270px;
   float:left;
   position:fixed;
-}
-
-.pad {
-	padding: 10px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 header ul {
@@ -185,6 +183,20 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+}
+
+.center { 
+	display: block!important;
+	margin-left: auto!important;
+  margin-right: auto!important;
+  text-align: center!important;
+}
+
+.bordered {
+	border: 1px solid;
+	border-color: #ccc;
+	border-radius: 4px;
+	padding:10px;
 }
 
 @media print, screen and (max-width: 960px) {
