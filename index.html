@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="no-invert">
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -60,26 +60,16 @@
       <script src="javascripts/scale.fix.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
       <script>
-      $(".no-invert").click(function() {
-		    var css = 'html:not(.no-invert) {-webkit-filter: invert(100%);' + '-moz-filter: invert(100%);' + '-o-filter: invert(100%);' + '-ms-filter: invert(100%); }';
-		    var head = document.getElementsByTagName('head')[0];
-		    var style = document.createElement('style');
-		    if (!window.counter) { 
-		        window.counter = 1;
-		    } else { 
-		        window.counter++;
-		        if (window.counter % 2 == 0) { 
-		            var css = 'html:not(.no-invert) {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }'
-		        } 
-		    }
-		    style.type = 'text/css';
-		    if (style.styleSheet) {
-		        style.styleSheet.cssText = css;
-		    } else {
-		        style.appendChild(document.createTextNode(css));
-		    }
-		    head.appendChild(style);
-		});
+      	$(".no-invert").click(function() {
+		    	var x = $("html");
+		    	if (x.hasClass("invert")) {
+			    	x.removeClass("invert").addClass("no-invert");
+			    	document.getElementById('html').style.webkitTransform = 'invert(0%)';
+		    	} else {
+			    	x.removeClass("no-invert").addClass("invert");
+			    	document.getElementById('html').style.webkitTransform = 'invert(100%)';
+		    	}
+      	});
       </script>
    </body>
 </html>
