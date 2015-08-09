@@ -101,6 +101,10 @@ header {
   position:fixed;
 }
 
+.pad {
+	padding: 10px;
+}
+
 header ul {
   list-style:none;
   height:40px;
