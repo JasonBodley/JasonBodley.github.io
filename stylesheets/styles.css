@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
+  font-size: 14px;
 }
 
 h1, h2, h3 {
@@ -215,18 +216,34 @@ footer {
 }
 
 .invert {
-	  -webkit-filter: invert(100%);
-	  -moz-filter: invert(100%);
-	  -o-filter: invert(100%);
-	  -ms-filter: invert(100%);
-  }
+	-webkit-filter: invert(100%);
+	-moz-filter: invert(100%);
+	-o-filter: invert(100%);
+	-ms-filter: invert(100%);
+}
   
-  .no-invert {
-	  -webkit-filter: invert(0%);
-	  -moz-filter: invert(0%);
-	  -o-filter: invert(0%);
-	  -ms-filter: invert(0%);
-  }
+.no-invert {
+	-webkit-filter: invert(0%);
+	-moz-filter: invert(0%);
+	-o-filter: invert(0%);
+	-ms-filter: invert(0%);
+}
+
+.font-small {
+	font-size: smaller;
+}
+
+.font-large {
+	font-size: larger;
+}
+
+.font-change {
+	height:36px;
+}
+
+footer.btn-group {
+	margin-bottom: 10px;
+}
 
 @media print, screen and (max-width: 960px) {
 
