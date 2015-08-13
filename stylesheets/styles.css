@@ -109,6 +109,10 @@ img.tiny {
 	height:16px;
 }
 
+img:hover {
+	cursor: pointer; cursor: hand;
+}
+
 img:active {
 	border: 3px solid;
 	border-color: #888;
