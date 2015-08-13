@@ -68,6 +68,13 @@
       <script src="javascripts/scale.fix.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
       <script>
+      	$(document).ready(function() {
+	      	var hour = new Date().getHours();
+	      	if (hour >= 21) {
+		      	$("#image").trigger("click");
+	      	}
+      	});
+      
       	$("#image").click(function() {
 		    	var x = $("html");
 		    	if (x.hasClass("invert")) {
