@@ -92,6 +92,7 @@
       		
       		var nightMode = localStorage.getItem("night-mode");
       		var mainContent = localStorage.getItem("main-content");
+      		var fontSize = localStorage.getItem("");
       		
       		if (nightMode) {
       			if (nightMode === "true") {
@@ -111,6 +112,10 @@
 		      			$('#'+mainContent).addClass("active");
 		      		});
 		      	});
+		      	
+		      if (fontSize) {
+			      $("p,a").css("font-size",size);
+		      }
       	
       	});
       
