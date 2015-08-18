@@ -111,12 +111,13 @@
 	      	$('#MainContent').load(mainContent + '.html', function() {
 	      			$(".fade-in").hide().fadeIn("slow", function() {
 		      			$('#'+mainContent).addClass("active");
+		      			if (fontSize) {
+						      $("p,a").css("font-size",size);
+					      }
 		      		});
 		      	});
 		      	
-		      if (fontSize) {
-			      $("p,a").css("font-size",size);
-		      }
+		      
       	
       	});
       
