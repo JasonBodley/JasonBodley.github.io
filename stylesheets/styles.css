@@ -258,8 +258,12 @@ footer.btn-group {
 	margin-bottom: 10px;
 }
 
+.big-screen-only {
+	visibility: visible;
+}
+
 .small-screen-only {
-	display: none;
+	visibility: hidden;
 }
 
 @media print, screen and (max-width: 960px) {
@@ -297,8 +301,12 @@ footer.btn-group {
   }
   
   .small-screen-only {
-	  display: none;
+	  visibility: hidden;
   }
+  
+  .big-screen-only {
+		visibility: visible;
+	}
  
 }
 
@@ -320,8 +328,12 @@ footer.btn-group {
   }
   
   .small-screen-only {
-	  display: block;
+	  visibility: visible;
   }
+  
+  .big-screen-only {
+		visibility: hidden;
+	}
 }
 
 @media print, screen and (max-width: 480px) {
@@ -334,8 +346,12 @@ footer.btn-group {
   }
   
   .small-screen-only {
-	  display: block;
+	  visibility: visible;
   }
+  
+  .big-screen-only {
+		visibility: hidden;
+	}
 }
 
 @media print {
