@@ -48,23 +48,21 @@
             
          </header>
          <section>
-            <h3>
-               <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hello, World.
-            </h3>
-            <div class="fade-in">
-              <p>Twenty-three year old software developer from Birmingham.</p>
-              <p>University of Birmingham <a href="http://cs.bham.ac.uk">computer science</a> graduate.</p>
-            </div>
-            <h3>
-               <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact
-            </h3>
-            <div class="fade-in">
-              <p>You can get in touch with me via <a href="mailto:me@jason.tech">email</a>.</p>
-              <p>Or you can connect with me on any of the sites listed</p>
-            </div>
+	         <ul class="nav nav-tabs">
+					   <li id="home" role="presentation" class="page-changer">
+					     <a><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+					   </li>
+					   <li id="projects" role="presentation" class="page-changer">
+					     <a><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Projects</a>
+					   </li>
+					 </ul>
+					 <br/>
+					 <div id="MainContent">
+					   &nbsp;
+					 </div>
          </section>
          <footer>
-           <div class="btn-group" role="group" aria-label="...">
+           <div class="btn-group small-screen-only" role="group" aria-label="...">
            	 <button type="button" class="btn btn-default font-change font-small" size="smaller">
 						   <span class="glyphicon glyphicon-font" aria-hidden="true"></span>
 					   </button>
@@ -89,21 +87,37 @@
       <script>
       	
       	$(function(){
-	      	
-      		$(".fade-in").hide().fadeIn("slow", function() {
-      		
-      		});
       	
       		var hour = new Date().getHours();
-	      	if (hour >= 21 || hour < 6) {
+      		
+      		var nightMode = localStorage.getItem("night-mode");
+      		var mainContent = localStorage.getItem("main-content");
+      		
+      		if (nightMode) {
+      			if (nightMode === "true") {
+	      			$("#image").trigger("click");
+	      		}
+      		} else if (hour >= 21 || hour < 6) {
 		      	$("#image").trigger("click");
 	      	}
+      	
+	      	if (!mainContent) {
+		      	var mainContent = localStorage.setItem("main-content","home");
+		      	mainContent = "home";
+	      	}
+	      	
+	      	$('#MainContent').load(mainContent + '.html', function() {
+	      			$(".fade-in").hide().fadeIn("slow", function() {
+		      			$('#'+mainContent).addClass("active");
+		      		});
+		      	});
       	
       	});
       
       	$("#image").click(function() {
 		    	var x = $("html");
 		    	if (x.hasClass("invert")) {
+		    		localStorage.setItem("night-mode", false);
 			    	x.removeClass("invert").addClass("no-invert");
 			    	$(this).removeClass("invert").addClass("no-invert");
 			    	$(".invert-only").stop().fadeOut();
@@ -112,12 +126,37 @@
 			    	x.removeClass("no-invert").addClass("invert");
 			    	$(this).removeClass("no-invert").addClass("invert");
 			    	$(".no-invert").removeClass("no-invert").addClass("no-invert");
+			    	localStorage.setItem("night-mode", true);
 		    	}
       	});
       	
       	$(".font-change").click(function() {
 	      	var size = $(this).attr("size");
 	      	$("p,a").css("font-size",size);
+	      	localStorage.setItem("font-size", size);
+      	});
+      	
+      	$(".page-changer").click(function() {
+      		$(".page-changer").removeClass("active");
+      		$(this).addClass("active");
+      		var id = $(this).attr("id");
+      		
+      		var $mainContent = $('#MainContent');
+     
+      		$mainContent.find(".fade-in").fadeOut(function() {
+      			$mainContent.hide();
+      			$mainContent.load(id + '.html', function() {
+      			  localStorage.setItem("main-content", id);
+      			  var fontSize = localStorage.getItem("font-size");
+      			  if (fontSize) {
+		      	    $mainContent.find("p,a").css("font-size", localStorage.getItem("font-size"));
+		      	  }
+      				$mainContent.show();
+	      			$mainContent.find(".fade-in").hide().fadeIn(function() {
+		      		});
+	      		});
+      		});
+      		
       	});
       	
       </script>
