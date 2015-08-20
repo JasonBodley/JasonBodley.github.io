@@ -48,7 +48,7 @@ $("#image").click(function() {
     }
 });
 
-$(".btn-link a").hover(function(e) {
+$(".btn-link").hover(function(e) {
 
     var link = $(this).find("a");
     var backgroundColor = link.css("color");
