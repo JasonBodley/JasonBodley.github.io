@@ -334,6 +334,7 @@ footer.btn-group {
   .big-screen-only {
 		visibility: hidden;
 	}
+	
 }
 
 @media print, screen and (max-width: 480px) {
