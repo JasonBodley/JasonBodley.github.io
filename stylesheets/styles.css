@@ -47,6 +47,10 @@ a {
   text-decoration:none;
 }
 
+a:hover {
+	text-decoration:none;
+}
+
 a small {
   font-size:11px;
   color:#777;
@@ -339,6 +343,10 @@ footer.btn-group {
 		border-radius: 8px;
 		-webkit-border-radius: 8px;
 		-moz-border-radius: 8px;
+	}
+	
+	.btn-link > a:hover {
+		text-decoration: none!important;
 	}
 	
 }
