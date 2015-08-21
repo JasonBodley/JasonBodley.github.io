@@ -50,34 +50,6 @@ $("#image").click(function() {
     }
 });
 
-$(".btn-link").hover(function(e) {
-
-    var link = $(this).find("a");
-    var backgroundColor = link.css("color");
-    var foregroundColor = $("body").css("background-color");
-    $(this).css({
-        "background-color": backgroundColor,
-        "border-radius": "8px"
-    });
-    link.css({
-        "color": foregroundColor
-    });
-
-}, function(e) {
-
-    var link = $(this).find("a");
-    var backgroundColor = link.css("color");
-    var foregroundColor = $(this).css("background-color");
-    $(this).css({
-        "background-color": backgroundColor,
-        "border-radius": "8px"
-    });
-    link.css({
-        "color": foregroundColor
-    });
-
-});
-
 $(".font-change").click(function() {
     var size = $(this).attr("size");
     $("p,a").css("font-size", size);
