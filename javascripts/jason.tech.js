@@ -1,5 +1,7 @@
 $(function() {
 
+		$("header a").attr("target","_blank");
+
     var hour = new Date().getHours();
 
     var nightMode = localStorage.getItem("night-mode");
