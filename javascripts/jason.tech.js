@@ -90,7 +90,7 @@ $(".page-changer").click(function() {
     var $mainContent = $('#MainContent');
 
     $mainContent.find(".fade-in").fadeOut(function() {
-        $mainContent.hide();
+        $mainContent.empty();
         $mainContent.load(id + '.html', function() {
             localStorage.setItem("main-content", id);
             var fontSize = localStorage.getItem("font-size");
