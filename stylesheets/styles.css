@@ -363,6 +363,11 @@ footer.btn-group {
   .big-screen-only {
 		visibility: hidden;
 	}
+	
+	footer {
+		position: relative;
+	}
+	
 }
 
 @media print {

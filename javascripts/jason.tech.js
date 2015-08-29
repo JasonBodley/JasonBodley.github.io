@@ -40,12 +40,11 @@ $("#image").click(function() {
         localStorage.setItem("night-mode", false);
         x.removeClass("invert").addClass("no-invert");
         $(this).removeClass("invert").addClass("no-invert");
-        $(".invert-only").stop().fadeOut();
+        //$(".invert-only").stop().fadeOut();
     } else {
-        $(".invert-only").stop().fadeIn();
+        //$(".invert-only").stop().fadeIn();
         x.removeClass("no-invert").addClass("invert");
         $(this).removeClass("no-invert").addClass("invert");
-        $(".no-invert").removeClass("no-invert").addClass("no-invert");
         localStorage.setItem("night-mode", true);
     }
 });
