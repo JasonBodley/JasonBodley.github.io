@@ -270,12 +270,6 @@ footer.btn-group {
 	visibility: hidden;
 }
 
-@media print, screen and (max-height: 480px) {
-	footer {
-		display: none;
-	}
-}
-
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
