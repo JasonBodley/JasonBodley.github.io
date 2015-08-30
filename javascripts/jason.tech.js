@@ -50,7 +50,7 @@ $("#image").click(function() {
 });
 
 $(".font-change").click(function() {
-    var size = $(this).attr("size");
+    var size = $(this).attr("data-size");
     $("p,a").css("font-size", size);
     localStorage.setItem("font-size", size);
 });
