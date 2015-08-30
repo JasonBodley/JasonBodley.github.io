@@ -272,7 +272,7 @@ footer.btn-group {
 	width:120px;
 }
 
-@media print, screen and (max-height: 480px) and (max-width: 720px) {
+@media print, screen and (max-height: 480px) and (max-width: 480px) {
 	footer {
 		display: none;
 	}
