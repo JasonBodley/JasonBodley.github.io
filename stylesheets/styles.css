@@ -272,12 +272,6 @@ footer.btn-group {
 	width:120px;
 }
 
-@media print, screen and (max-height: 480px) and (min-width: 720px) {
-	footer {
-		display: none;
-	}
-}
-
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
