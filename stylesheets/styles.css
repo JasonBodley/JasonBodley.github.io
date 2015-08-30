@@ -114,7 +114,7 @@ img.tiny {
 }
 
 img:hover {
-	cursor: pointer; cursor: hand;
+	cursor: pointer;
 }
 
 img:active {
@@ -141,7 +141,6 @@ header ul {
   background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
   background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
   background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-  background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
 
   border-radius:5px;
   border:1px solid #d2d2d2;
@@ -228,7 +227,6 @@ footer {
 }
 
 .page-changer:hover {
-	cursor: hand;
 	cursor: pointer;
 }
 
@@ -270,7 +268,11 @@ footer.btn-group {
 	visibility: hidden;
 }
 
-@media print, screen and (max-height: 480px) {
+.social-link {
+	width:120px;
+}
+
+@media print, screen and (max-height: 480px) and (min-width: 720px) {
 	footer {
 		display: none;
 	}
