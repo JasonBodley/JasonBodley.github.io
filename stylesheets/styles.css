@@ -127,6 +127,7 @@ header {
   position:fixed;
   margin-left:auto;
   margin-right:auto;
+  background-image: url("img/snowdon.jpg");
 }
 
 header ul {
@@ -220,6 +221,10 @@ footer {
 
 .pad {
 	padding: 8px;
+}
+
+a.pad {
+	display: inline-block!important;
 }
 
 .margin-bottom {
