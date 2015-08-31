@@ -4,7 +4,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: center;
+  background-position-y: -500px;
+  background-attachment: fixed;
 }
 
 .nav>li>a {
