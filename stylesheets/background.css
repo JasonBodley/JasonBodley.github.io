@@ -16,6 +16,10 @@ body {
 	color: #777;
 }
 
+#MainConent {
+	font-size: larger;
+}
+
 @media print, screen and (min-width: 960px) {
   header h1 {
 	  color:white;
