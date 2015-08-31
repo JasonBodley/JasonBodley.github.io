@@ -1,11 +1,9 @@
 $(function() {
-
 		$("header a").attr("target","_blank");
 
     var hour = new Date().getHours();
 
     var mainContent = localStorage.getItem("main-content");
-    var fontSize = localStorage.getItem("");
 
     if (!mainContent) {
         var mainContent = localStorage.setItem("main-content", "home");
@@ -15,20 +13,8 @@ $(function() {
     $('#MainContent').load(mainContent + '.html', function() {
         $(".fade-in").hide().fadeIn("slow", function() {
             $('#' + mainContent).addClass("active");
-            if (fontSize) {
-                $("p,a").css("font-size", size);
-            }
         });
     });
-
-
-
-});
-
-$(".font-change").click(function() {
-    var size = $(this).attr("data-size");
-    $("p,a").css("font-size", size);
-    localStorage.setItem("font-size", size);
 });
 
 $(".page-changer").click(function() {
@@ -50,5 +36,4 @@ $(".page-changer").click(function() {
             $mainContent.find(".fade-in").hide().fadeIn(function() {});
         });
     });
-
 });
