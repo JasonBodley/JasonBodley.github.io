@@ -28,10 +28,6 @@ $(".page-changer").click(function() {
         $mainContent.empty();
         $mainContent.load(id + '.html', function() {
             localStorage.setItem("main-content", id);
-            var fontSize = localStorage.getItem("font-size");
-            if (fontSize) {
-                $mainContent.find("p,a").css("font-size", localStorage.getItem("font-size"));
-            }
             $mainContent.show();
             $mainContent.find(".fade-in").hide().fadeIn(function() {});
         });
