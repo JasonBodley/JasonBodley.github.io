@@ -1,0 +1,48 @@
+body {
+	background-image: url("../img/snowdon.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-tabs li a {
+	color: white;
+	font-weight: bolder;
+}
+
+.nav-tabs>li:foucs {
+	color: #777;
+}
+
+@media print, screen and (min-width: 960px) {
+  header h1 {
+	  color:white;
+	  font-weight: bolder;
+	  text-shadow: 1px 1px #222222;
+  }
+  
+}
+
+@media print, screen and (max-width: 960px) {
+  body {
+    background-position: top;
+  }
+  
+  header a {
+	  color:white;
+	  font-size: larger;
+	  text-shadow: 1px 1px #222222;
+  }
+  
+  header a:hover {
+  	color: #222;
+  }
+  
+  footer {
+	  color:white;
+	  text-shadow: 2px 2px #222222;
+	  font-size: larger;
+  }
+}
