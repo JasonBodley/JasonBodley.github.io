@@ -384,6 +384,10 @@ footer.btn-group {
 	  text-align: center!important;
 	}
 	
+	footer>text {
+		display: none;
+	}
+	
 }
 
 @media print {
