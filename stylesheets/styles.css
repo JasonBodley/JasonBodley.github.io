@@ -3,11 +3,12 @@
 
 html {
 	background-color: #eee;
+	text-rendering: optimizeLegibility!important;
 }
 
 body {
   padding:50px;
-  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:14px/1.25 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
   background-color: #eee;
@@ -127,7 +128,6 @@ header {
   position:fixed;
   margin-left:auto;
   margin-right:auto;
-  background-image: url("img/snowdon.jpg");
 }
 
 header ul {
