@@ -21,6 +21,32 @@ body {
 	background-color: none!important;
 }
 
+h3.decorated {
+  position: relative;
+  text-align: center;
+}
+
+h3.decorated span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+}
+
+h3.decorated:before {
+  background: #ddd;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+h3.decorated:before {
+  left: 0;
+}
+
 @media print, screen and (min-width: 961px) {
   header h1 {
 	  color:#fff;
