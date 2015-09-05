@@ -289,6 +289,8 @@ footer.btn-group {
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	background-color: #fff;
+	max-height: 480px;
+	overflow-y: scroll;
 }
 
 @media print, screen and (max-width: 960px) {
