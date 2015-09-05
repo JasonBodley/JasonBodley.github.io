@@ -1,8 +1,6 @@
 $(function() {
 		$("header a").attr("target","_blank");
 
-    var hour = new Date().getHours();
-
     var mainContent = localStorage.getItem("main-content");
 
     if (!mainContent) {
@@ -10,7 +8,7 @@ $(function() {
         mainContent = "home";
     }
 
-    $('#MainContent').load(mainContent + '.html', function() {
+    $('#main-content').load(mainContent + '.html', function() {
         $(".fade-in").hide().fadeIn("slow", function() {
             $('#' + mainContent).addClass("active");
         });
@@ -22,7 +20,7 @@ $(".page-changer").click(function() {
     $(this).addClass("active");
     var id = $(this).attr("id");
 
-    var $mainContent = $('#MainContent');
+    var $mainContent = $('#main-content');
 
     $mainContent.find(".fade-in").fadeOut(function() {
         $mainContent.empty();

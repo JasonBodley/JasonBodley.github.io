@@ -282,6 +282,15 @@ footer.btn-group {
 	padding:0px;
 }
 
+.box {
+	margin: 4px;
+	padding: 16px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: #fff;
+}
+
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
