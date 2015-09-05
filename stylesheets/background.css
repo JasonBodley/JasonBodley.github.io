@@ -5,6 +5,8 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   position: fixed;
   width: 100%;
   height: 0px;
