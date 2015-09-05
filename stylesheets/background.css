@@ -5,6 +5,9 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
+  position: fixed;
+  width: 100%;
+  height: 0px;
 }
 
 .nav>li>a {
@@ -17,7 +20,7 @@ body {
 	background-color: none!important;
 }
 
-@media print, screen and (min-width: 960px) {
+@media print, screen and (min-width: 961px) {
   header h1 {
 	  color:#fff;
 	  font-weight: bolder;
@@ -29,6 +32,8 @@ body {
 @media print, screen and (max-width: 960px) {
   body {
     background-position: top;
+    position: inherit;
+    height: 100%;
   }
   
   header a {
