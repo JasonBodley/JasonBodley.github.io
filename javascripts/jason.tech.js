@@ -2,10 +2,15 @@ $(function() {
 		$("header a").attr("target","_blank");
 
     var mainContent = localStorage.getItem("main-content");
+    var backgroundImage = localStorage.getItem("background-image");
 
     if (!mainContent) {
         var mainContent = localStorage.setItem("main-content", "home");
         mainContent = "home";
+    }
+    
+    if (backgroundImage) {
+	    $('#' + backgroundImage).trigger("click");
     }
 
     $('#main-content').load(mainContent + '.html', function() {
@@ -13,6 +18,15 @@ $(function() {
             $('#' + mainContent).addClass("active");
         });
     });
+});
+
+$(".img-changer").click(function() {
+	$(".img-changer").removeClass("fa-circle").addClass("fa-circle-o");
+	$(this).addClass("fa-circle");
+	var id = $(this).attr("id");
+	$("body").removeClass();
+	$("body").addClass(id);
+	localStorage.setItem("background-image", id);
 });
 
 $(".page-changer").click(function() {
