@@ -21,12 +21,14 @@ $(function() {
 });
 
 $(".img-changer").click(function() {
-	$(".img-changer").removeClass("fa-circle").addClass("fa-circle-o");
-	$(this).addClass("fa-circle");
-	var id = $(this).attr("id");
-	$("body").removeClass();
-	$("body").addClass(id);
-	localStorage.setItem("background-image", id);
+	if ($(this).hasClass("fa-circle-o")) {
+		$(".img-changer").removeClass("fa-circle").addClass("fa-circle-o");
+		$(this).addClass("fa-circle");
+		var id = $(this).attr("id");
+		$("body").removeClass();
+		$("body").addClass(id);
+		localStorage.setItem("background-image", id);
+	}
 });
 
 $(".page-changer").click(function() {
