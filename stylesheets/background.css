@@ -1,5 +1,12 @@
-body {
+body.snowdon {
 	background-image: url("../img/snowdon.jpg");
+}
+
+body.waterfall {
+	background-image: url("../img/waterfall.jpg");
+}
+
+body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
