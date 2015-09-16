@@ -58,7 +58,7 @@ h3.decorated:before {
 	position: fixed;
 	left: 10px;
 	top: 10px;
-	color: white;
+	color: #39C;
 }
 
 .img-changer-container .img-changer {
@@ -100,7 +100,6 @@ h3.decorated:before {
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
-		color: white;
 	}
 	
 	.img-changer-container .img-changer {
@@ -117,4 +116,10 @@ h3.decorated:before {
 	#MainContent {
 		font-size: larger;
 	}
+	
+	.img-changer-container .img-changer {
+		padding: 4px;
+		font-size: 24px;
+	}
+
 }
