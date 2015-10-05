@@ -285,12 +285,34 @@ footer.btn-group {
 .box {
 	margin: 4px;
 	padding: 16px;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	background-color: #fff;
 	max-height: 480px;
 	overflow-y: auto;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 64px;
+  -webkit-border-radius: 64px;
+  -moz-border-radius: 64px;
+  border: 3px solid;
+  border-top-color: transparent;
+  border-right-color: red;
+  border-bottom-color: green;
+  border-left-color: blue;
+  position :relative;
+  animation: rotating 1s linear infinite;
+  -webkit-animation: rotating 1s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@keyframes rotating {
+  0%   { transform: rotate(0deg);   -webkit-transform: rotate(0deg);   }
+  50%  { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+  100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); }
 }
 
 @media print, screen and (max-width: 960px) {
