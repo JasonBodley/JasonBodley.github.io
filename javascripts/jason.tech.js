@@ -21,9 +21,9 @@ $(function() {
 });
 
 $(".img-changer").click(function() {
-	if ($(this).hasClass("fa-circle-o")) {
-		$(".img-changer").removeClass("fa-circle").addClass("fa-circle-o");
-		$(this).addClass("fa-circle");
+	if ($(this).hasClass("fa-square-o")) {
+		$(".img-changer").removeClass("fa-square").addClass("fa-square-o");
+		$(this).addClass("fa-square");
 		var id = $(this).attr("id");
 		$("body").removeClass();
 		$("body").addClass(id);

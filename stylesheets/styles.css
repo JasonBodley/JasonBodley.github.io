@@ -308,6 +308,12 @@ footer.btn-group {
   margin-right: auto;
 }
 
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
 
 @keyframes rotating {
   0%   { transform: rotate(0deg);   -webkit-transform: rotate(0deg);   }
