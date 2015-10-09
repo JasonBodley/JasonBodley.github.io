@@ -107,6 +107,8 @@ th {
 
 img {
   max-width:100%;
+  animation: rotating 0s linear infinite;
+  -webkit-animation: rotating 0s linear infinite;
 }
 
 img.tiny {
@@ -119,9 +121,14 @@ img:hover {
 }
 
 img:active {
-	visibility: hidden;
+	-moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
-
+ 
 header {
   width:270px;
   float:left;
