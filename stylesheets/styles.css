@@ -282,6 +282,9 @@ footer.btn-group {
 
 .social-link {
 	width:120px;
+	padding-top:8px;
+	padding-bottom:8px;
+	display: inline-flex;
 }
 
 .fa-blowup:hover {
