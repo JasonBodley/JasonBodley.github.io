@@ -18,6 +18,7 @@ $(function() {
             $('#' + mainContent).addClass("active");
         });
     });
+    
 });
 
 $(".img-changer").click(function() {
@@ -26,7 +27,7 @@ $(".img-changer").click(function() {
 		$(this).addClass("fa-square");
 		var id = $(this).attr("id");
 		$("body").removeClass();
-		$("body").addClass(id);
+		$("body").addClass("background-" + id);
 		localStorage.setItem("background-image", id);
 	}
 });
