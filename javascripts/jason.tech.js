@@ -45,11 +45,10 @@ $(".page-changer").click(function() {
     $(this).addClass("active");
     var id = $(this).attr("id");
 
-    
-
     $mainContent.find(".fade-in").fadeOut(function() {
         $mainContent.empty();
-        $mainContent.load(id + '.html', function() {
+        
+        $mainContent.load(id + '.html', function(x) {
             localStorage.setItem("main-content", id);
             $mainContent.show();
             $mainContent.find(".fade-in").hide().fadeIn(function() {});
