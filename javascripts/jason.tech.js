@@ -16,6 +16,7 @@ $(function() {
     $('#main-content').load(mainContent + '.html', function() {
         $(".fade-in").hide().fadeIn("slow", function() {
             $('#' + mainContent).addClass("active");
+            $('.overlay').hide();
         });
     });
     
@@ -33,11 +34,18 @@ $(".img-changer").click(function() {
 });
 
 $(".page-changer").click(function() {
+
+		var $mainContent = $('#main-content');
+		var $wrapper = $('#main-content-wrapper');
+		var $spinner = $wrapper.find("div.spinner.mini");
+		
+		$spinner.show();
+    
     $(".page-changer").removeClass("active");
     $(this).addClass("active");
     var id = $(this).attr("id");
 
-    var $mainContent = $('#main-content');
+    
 
     $mainContent.find(".fade-in").fadeOut(function() {
         $mainContent.empty();
@@ -45,6 +53,7 @@ $(".page-changer").click(function() {
             localStorage.setItem("main-content", id);
             $mainContent.show();
             $mainContent.find(".fade-in").hide().fadeIn(function() {});
+            $spinner.hide();
         });
     });
 });
