@@ -327,6 +327,12 @@ footer.btn-group {
   border-radius: 0px;
 }
 
+.nav-tabs > li > a:hover {
+	border-color:white;
+	color:white;
+	background-color: transparent;
+}
+
 div.overlay {
 	background: rgba(0,0,0,0.5); 
 	width: 100%;
