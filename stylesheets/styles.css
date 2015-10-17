@@ -129,7 +129,7 @@ img:active {
 }
  
 header {
-  width:270px;
+  width:260px;
   float:left;
   position:fixed;
   margin-left:auto;
@@ -194,7 +194,7 @@ header ul a strong {
 }
 
 section {
-  width:500px;
+  width:600px;
   float:right;
   padding-bottom:50px;
 }
