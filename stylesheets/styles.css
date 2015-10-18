@@ -211,11 +211,14 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
+  width: calc(100% - 100px);
+  width: -moz-calc(100% - 100px);
+  width: -webkit-calc(100% - 100px);
+  width: -o-calc(100% - 100px);
   position:fixed;
-  bottom:50px;
-  z-index: -1;
+  bottom:0px;
+  z-index: 2;
+  min-height: 32px;
 }
 
 .center { 
@@ -308,8 +311,8 @@ footer.btn-group {
   border-bottom-color: rgba(0,0,0,0.25);
   border-left-color: rgba(0,0,0,0.25);
   position :relative;
-  animation: rotating 1s linear infinite;
-  -webkit-animation: rotating 1s linear infinite;
+  animation: rotating 0.8s linear infinite;
+  -webkit-animation: rotating 0.8s linear infinite;
   margin-left: auto;
   margin-right: auto;
 }
@@ -317,7 +320,8 @@ footer.btn-group {
 .spinner.mini {
 	width:32px;
 	height:32px;
-	margin-bottom: 8px;
+	animation: rotating 0.6s linear infinite;
+  -webkit-animation: rotating 0.6s linear infinite;
 }
 
 .nav-tabs > li > a {
@@ -353,6 +357,10 @@ div.overlay > .spinner {
 	top: -webkit-calc(50% - 32px);
 	top: -o-calc(50% - 32px);
 	top: calc(50% - 32px);
+}
+
+#nonObtrusiveSpinner {
+	float:right;
 }
 
 @keyframes rotating {

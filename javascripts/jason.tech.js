@@ -36,8 +36,7 @@ $(".img-changer").click(function() {
 $(".page-changer").click(function() {
 
 		var $mainContent = $('#main-content');
-		var $wrapper = $('#main-content-wrapper');
-		var $spinner = $wrapper.find("div.spinner.mini");
+		var $spinner = $("#nonObtrusiveSpinner");
 		
 		$spinner.show();
     
