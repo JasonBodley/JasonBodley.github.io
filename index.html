@@ -28,7 +28,7 @@
       <i class="img-changer fa fa-square-o" id="waterfall"></i>
     </div>
     <div class="wrapper">
-      <div class='overlay'>
+      <div class='overlay' style="display:none">
         <div class='spinner'></div>
       </div>
       <header>
@@ -74,31 +74,43 @@
       <section>
         <h2 style="display:none">Content</h2>
         <ul class="nav nav-tabs">
-          <li id="home" role="presentation" class="page-changer fade-in">
+          <li id="home" role="presentation" class="page-changer fade-in disabled">
             <a>
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
             </a>
           </li>
-          <li id="projects" role="presentation" class="page-changer fade-in">
+          <li id="projects" role="presentation" class="page-changer fade-in disabled">
             <a>
             <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Projects
             </a>
           </li>
           <li id="nonObtrusiveSpinner" style="display:none">
-          	<div class="spinner mini"></div>
+            <div class="spinner mini"></div>
           </li>
         </ul>
         <br/>
         <div id="main-content-wrapper" class="flat box center">
           <div id="main-content">
-            &nbsp;
+            <noscript>
+              <h3 class="decorated">
+                <span>
+                <i class="fa fa-hand-pointer-o"></i>
+                &nbsp;Ah Ah Ah
+                </span>
+              </h3>
+              <div class="alert alert-danger" role="alert">
+                <span class="sr-only">Error:</span>
+                <p><i class="fa fa-code fade-in"></i> '<em>You didn't say the magic word.</em>'</p>
+                <p>Looks like JavaScript isn't enabled on your device.</p>
+              </div>
+            </noscript>
           </div>
         </div>
       </section>
     </div>
     <footer>
       <small class="center">
-	      &nbsp;
+      &nbsp;
       </small>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
