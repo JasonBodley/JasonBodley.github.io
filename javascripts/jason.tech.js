@@ -19,7 +19,7 @@ $(function() {
   
     $(".fade-in").hide().fadeIn("slow", function() {
       $('#' + mainContent).addClass("active");
-      $('.overlay').hide();
+      $('.overlay').fadeOut();
       $('.disabled').removeClass("disabled");
     });
     
