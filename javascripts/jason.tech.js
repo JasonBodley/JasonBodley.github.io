@@ -94,7 +94,7 @@ $(".page-changer").click(function() {
 function trySetLocalStorage(key, item) {
 	try {
 		localStorage.setItem("main-content", "home");
-	} catch {
+	} catch (ex) {
 		console.log("An attempt to set LocalStorage for " + key + " was made but was prevented by the brwoser.")	
 	}
 }
