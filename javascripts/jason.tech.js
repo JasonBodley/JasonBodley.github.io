@@ -7,7 +7,7 @@ $(function() {
   var backgroundImage = localStorage.getItem("background-image");
 
   if (!mainContent) {
-    var mainContent = localStorage.setItem("main-content", "home");
+    var mainContent = trySetLocalStorage("main-content", "home");
     mainContent = "home";
   }
 
@@ -38,7 +38,7 @@ $(".img-changer").click(function() {
     var id = $(this).attr("id");
     $("body").removeClass();
     $("body").addClass("background-" + id);
-    localStorage.setItem("background-image", id);
+    trySetLocalStorage("background-image", id);
 
   }
 
@@ -75,7 +75,7 @@ $(".page-changer").click(function() {
 
       $mainContent.load(id + '.html', function(response, status, xhr) {
         if (status == "success") {
-          localStorage.setItem("main-content", id);
+          ("main-content", id);
           finishLoading($mainContent);
         } else {
           $mainContent.load('error.html', function(response, status, xhr) {
@@ -90,6 +90,14 @@ $(".page-changer").click(function() {
 
   }
 });
+
+function trySetLocalStorage(key, item) {
+	try {
+		localStorage.setItem("main-content", "home");
+	} catch {
+		console.log("An attempt to set LocalStorage for " + key + " was made but was prevented by the brwoser.")	
+	}
+}
 
 function spaceOutText(text) {
 	return text.replace(/([A-Z])/g, ' $1')
