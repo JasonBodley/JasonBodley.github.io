@@ -14,8 +14,12 @@ $(function() {
   if (backgroundImage) {
     $('#' + backgroundImage).trigger("click");
   }
+    
+  var $mainContent = $('#main-content');
+  $mainContent.append($("<div id='" + mainContent + "' class='page-content'></div>"));
+  var $content = $mainContent.find('#' + mainContent);
 
-  $('#main-content').load(mainContent + '.html', function() {
+  $content.load(mainContent + '.html', function() {
   
     $(".fade-in").hide().fadeIn("slow", function() {
       $('#' + mainContent).addClass("active");
@@ -62,40 +66,47 @@ $(".page-changer").click(function() {
     
     var finishLoading = function(content) {
     
-	    $mainContent.show();
-      $mainContent.find(".fade-in").hide().fadeIn(function() {});
+      content.find(".fade-in").hide();
+      content.show();
+      content.find(".fade-in").fadeIn(function() {});
       $spinner.hide();
       $(".page-changer").removeClass("disabled");
       
     };
 
-    $mainContent.find(".fade-in").fadeOut(function() {
+    $mainContent.find(".page-content").hide();
     
-      $mainContent.empty();
+      var $content = $mainContent.find("#" + id);
+      if ($content.length > 0) {
+          finishLoading($content); 
+      } else {
+          $mainContent.append($("<div id='" + id + "' class='page-content'></div>"));
+          var $content = $mainContent.find('#' + id);
+          
+          $content.load(id + '.html', function(response, status, xhr) {
+            if (status === "success") {
+              ("main-content", id);
+              finishLoading($content);
+            } else {
+              $content.load('error.html', function(response, status, xhr) {
+                $content.find("#verboseError").html("Couldn't find the page '<em>" + spaceOutText(id) + "</em>' - sorry.");
+                finishLoading($content);
+              });
+            }
 
-      $mainContent.load(id + '.html', function(response, status, xhr) {
-        if (status == "success") {
-          ("main-content", id);
-          finishLoading($mainContent);
-        } else {
-          $mainContent.load('error.html', function(response, status, xhr) {
-            $mainContent.find("#verboseError").html("Couldn't find the page '<em>" + spaceOutText(id) + "</em>' - sorry.");
-            finishLoading($mainContent);
           });
-        }
-        
-      });
+      }
       
-    });
+      trySetLocalStorage("main-content", id);
 
   }
 });
 
 function trySetLocalStorage(key, item) {
 	try {
-		localStorage.setItem("main-content", "home");
+		localStorage.setItem(key, item);
 	} catch (ex) {
-		console.log("An attempt to set LocalStorage for " + key + " was made but was prevented by the brwoser.")	
+		console.log("An attempt to set LocalStorage for " + key + " was made but was prevented by the browser.")	
 	}
 }
 
