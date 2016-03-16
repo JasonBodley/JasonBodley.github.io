@@ -131,7 +131,7 @@ img:active {
 header {
   width:260px;
   float:left;
-  position:fixed;
+  /*position:fixed;*/
   margin-left:auto;
   margin-right:auto;
 }
