@@ -78,7 +78,7 @@
       </header>
       <section>
         <h2 style="display:none">Content</h2>
-        <ul class="nav nav-tabs">
+        <ul id="navigation" class="nav nav-tabs">
           <li id="home" role="presentation" class="page-changer fade-in disabled">
             <a>
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -98,6 +98,9 @@
         <br/>
         <div id="main-content-wrapper" class="flat box center">
           <div id="main-content">
+            <div class="expander">
+                <i class="fa fa-expand"></i>
+            </div>
             <noscript>
               <h3 class="decorated">
                 <span>
@@ -114,6 +117,44 @@
           </div>
         </div>
       </section>
+    </div>
+    <div id="fullscreenModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header background-flat-color">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body center">
+            &nbsp;
+          </div>
+          <div class="modal-footer">
+            <a class="pad float-left" href="https://facebook.com/jasonbodley92">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+            <a class="pad float-left" href="https://twitter.com/jasonbodley92">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="pad float-left" href="https://plus.google.com/u/0/104614011639093491093">
+              <i class="fa fa-google-plus-square"></i>
+            </a>
+            <a class="pad float-left" href="https://instagram.com/jasebod/">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a class="pad float-left" href="https://soundcloud.com/jase92/">
+              <i class="fa fa-soundcloud"></i>
+            </a>
+            <a class="pad float-left" href="https://uk.linkedin.com/in/jasonbodley">
+              <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a class="pad float-left" href="https://github.com/JasonBodley">
+              <i class="fa fa-github-square"></i>
+            </a>
+            <img id="image" src="img/me.jpg" alt="Jason Bodley" width="48" height="48" class="img-circle pad">
+            Jason Bodley
+          </div>
+        </div>
+
+      </div>
     </div>
     <footer>
       <small class="center">

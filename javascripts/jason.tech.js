@@ -102,6 +102,27 @@ $(".page-changer").click(function() {
   }
 });
 
+$(".expander").click(function() {
+    var contentID = localStorage.getItem("main-content");
+    var $modal = $("#fullscreenModal");
+    var $modalBody = $modal.find(".modal-body");
+    var $modalHeader = $modal.find(".modal-header");
+    var $content = $('#main-content').find("#" + contentID).clone(true,true);
+    
+    $modalBody.empty();
+    $modalBody.append($content);
+    
+    $modal.modal();
+    $(".expander").hide();
+});
+
+$('#fullscreenModal').on('hidden.bs.modal', function () {
+    var $modal = $("#fullscreenModal");
+    var $modalBody = $modal.find(".modal-body");
+    $modalBody.empty();
+    $(".expander").show();
+})
+
 function trySetLocalStorage(key, item) {
 	try {
 		localStorage.setItem(key, item);

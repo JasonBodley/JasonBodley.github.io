@@ -1,8 +1,14 @@
+.background-flat-color {
+    background-color: #39c;
+}
+
 .background-snowdon {
+    background-color: #39c;
 	background-image: url("../img/snowdon.jpg");
 }
 
 .background-waterfall {
+    background-color: #39c;
 	background-image: url("../img/waterfall.jpg");
 }
 

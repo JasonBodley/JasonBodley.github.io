@@ -364,6 +364,33 @@ div.overlay > .spinner {
 	top:6px;
 }
 
+.expander {
+    float:right;
+    font-size:14px;
+}
+
+.expander:hover {
+    cursor: pointer; 
+    color: #39c;
+}
+
+.float-left {
+   float:left; 
+}
+
+.page-content {
+    clear:both;
+}
+
+.modal-header {
+    height:48px;
+}
+
+.modal-header.background-flat-color > .close {
+    color:white;
+    opacity: 1;
+}
+
 @keyframes rotating {
   0%   { transform: rotate(0deg);   -webkit-transform: rotate(0deg);   }
   50%  { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
