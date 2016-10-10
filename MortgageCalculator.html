@@ -125,10 +125,11 @@
                             </div>
                         </div>
                     </div>
+                    <!-- ko if: Waste -->
+                    <p>This means you will have wasted £
+                        <text data-bind="text: Waste"></text> on rent.</p>
+                    <!-- /ko -->
                 </fieldset>
-                <!-- ko if: Waste -->
-                <p>This means you will have wasted £<text data-bind="text: Waste"></text> on rent.</p>
-                <!-- /ko -->
             </form>
         </div>
         <div class="tabbable" id="MonthlyPayments" style="display:none;">
