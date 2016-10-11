@@ -82,7 +82,7 @@ $(function () {
         self.MortgageTermYears = ko.observable(mt);
         self.Deposit = ko.pureComputed(function () {
             if (self.DepositPercentage()) {
-                return self.PropertyValue() * (self.DepositPercentage() / 100.00);
+                return parseFloat(self.PropertyValue() * (self.DepositPercentage() / 100.00)).toFixed(2);
             }
             else {
                 return 0;
@@ -91,7 +91,7 @@ $(function () {
         self.EquityLoan = ko.observable(el);
         self.EquityLoanAmount = ko.pureComputed(function () {
             if (self.EquityLoan() === true) {
-                return self.PropertyValue() * self.EquityLoanPercentile;
+                return parseFloat(self.PropertyValue() * self.EquityLoanPercentile).toFixed(2);
             }
             else {
                 return 0;
@@ -160,4 +160,5 @@ $(function () {
         });
     };
     ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 1, 650, 6));
+    $input.blur();
 });
