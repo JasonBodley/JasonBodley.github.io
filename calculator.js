@@ -6,6 +6,22 @@ $(function () {
         var id = $(this).data("id");
         $("#" + id).show();
     });
+    var $input = $("input");
+    $input.focus($input, function (event) {
+        var $target = $(event.target);
+        var val = $target.val();
+        if (val) {
+            $target.val(val.replace(/,/g, ''));
+        }
+    });
+    $input.blur($input, function (event) {
+        var $target = $(event.target);
+        var value = parseFloat($target.val());
+        if (value) {
+            var newValue = value.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+            $target.val(newValue);
+        }
+    });
     var PaymentModel = function (month, mortgageAmount, equityLoanAmount, initialRate, variableRate, initialTerm, totalTerm) {
         var self = this;
         self.EquityLoanMonth = (5 * 12);
