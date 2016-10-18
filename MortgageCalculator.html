@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" type="text/css" href="mortgage-calculator-style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type='text/javascript' src='knockout-3.4.0.js'></script>
@@ -27,12 +28,7 @@
                     <legend>Property Information</legend>
                     <div class='row'>
                         <div class='col-sm-2'>
-                            <div class='form-group'>
-                                <label for="PropertyValue">Property Value</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">£</div>
-                                    <input data-bind="value: PropertyValue" type="text" class="form-control" id="PropertyValue" placeholder="180,000"> </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'PropertyValue', prepend: '£', isNumeric: true, name: 'Property Value', value: PropertyValue}"></div>
                         </div>
                         <div class='col-sm-2'>
                             <div class='form-group'>
@@ -43,9 +39,7 @@
                             </div>
                         </div>
                         <div class='col-sm-2'>
-                            <div class='form-group'>
-                                <label for="Deposit">Deposit £</label>
-                                <input data-bind="value: Deposit" type="text" class="form-control" id="Deposit" placeholder="---" readonly> </div>
+                            <div data-bind="textInput: {id: 'Deposit', prepend: '£', isNumeric: true, name: 'Deposit', value: Deposit, readonly: true}"></div>
                         </div>
                         <div class='col-sm-2'>
                             <div class="form-group">
@@ -56,9 +50,7 @@
                         </div>
                         <!-- ko if: EquityLoan() === true -->
                         <div class='col-sm-2'>
-                            <div class="form-group">
-                                <label for="EquityLoanAmount">Equity Loan £</label>
-                                <input data-bind="value: EquityLoanAmount" type="text" class="form-control" id="EquityLoanAmount" placeholder="---" readonly> </div>
+                            <div data-bind="textInput: {id: 'EquityLoanAmount', prepend: '£', isNumeric: true, name: 'Equity Loan Amount', value: EquityLoanAmount, readonly: true}"></div>
                         </div>
                         <!-- /ko -->
                     </div>
@@ -67,40 +59,16 @@
                     <legend>Mortgage Details</legend>
                     <div class='row'>
                         <div class='col-sm-2'>
-                            <div class="form-group">
-                                <label for="MortgageTermYears">Mortgage Term</label>
-                                <div class="input-group">
-                                    <input data-bind="value: MortgageTermYears" type="text" class="form-control" id="MortgageTermYears" placeholder="25">
-                                    <div class="input-group-addon">Years</div>
-                                </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'MortgageTermYears', append: 'Years', isNumeric: true, decimalplaces: 0, name: 'Mortgage Term', value: MortgageTermYears}"></div>
                         </div>
                         <div class='col-sm-2'>
-                            <div class="form-group">
-                                <label for="InitialRate">Initial Rate</label>
-                                <div class="input-group">
-                                    <input data-bind="value: InitialRate" type="text" class="form-control" id="InitialRate" placeholder="2.00">
-                                    <div class="input-group-addon">%</div>
-                                </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'InitialRate', append: '%', isNumeric: true, decimalplaces: 4, name: 'Initial Rate', value: InitialRate}"></div>
                         </div>
                         <div class='col-sm-2'>
-                            <div class="form-group">
-                                <label for="InitialTerm">Initial Term</label>
-                                <div class="input-group">
-                                    <input data-bind="value: InitialTerm" type="text" class="form-control" id="InitialTerm" placeholder="24">
-                                    <div class="input-group-addon">Months</div>
-                                </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'InitialTerm', append: 'Months', isNumeric: true, decimalplaces: 0, name: 'Initial Term', value: InitialTerm}"></div>
                         </div>
                         <div class='col-sm-2'>
-                            <div class="form-group">
-                                <label for="VariableRate">Variable Rate</label>
-                                <div class="input-group">
-                                    <input data-bind="value: VariableRate" type="text" class="form-control" id="VariableRate" placeholder="4.00">
-                                    <div class="input-group-addon">%</div>
-                                </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'VariableRate', append: '%', isNumeric: true, decimalplaces: 4, name: 'Variable Rate', value: VariableRate}"></div>
                         </div>
                     </div>
                 </fieldset>
@@ -138,41 +106,41 @@
                     <th> Month </th>
                     <th> Repayment Amount (£) </th>
                     <!-- ko if: EquityLoan() === true -->
+                    <th> Equity Loan Interest (%) </th>
                     <th> Equity Loan Interest (£) </th>
                     <!-- /ko -->
                     <th> Total (£) </th>
                 </thead>
+                <!-- ko if: $data.Payments() -->
                 <tbody data-bind="foreach: $data.Payments()">
                     <tr>
                         <td data-bind="text: $data.Month"></td>
                         <td data-bind="text: $data.RepaymentAmount"></td>
                         <!-- ko if: $parent.EquityLoan() === true -->
+                        <td data-bind="text: $data.EquityLoanInterestPercentage"></td>
                         <td data-bind="text: $data.EquityLoanInterest"></td>
                         <!-- /ko -->
-                        <td data-bind="text: $data.Total"></td>
+                        <td data-bind="text: $data.Total" style="font-weight:bold"></td>
                     </tr>
                 </tbody>
+                <!-- /ko -->
             </table>
+            <!-- ko ifnot: $data.Payments() -->
+            <button data-bind="click: $data.recalculatePayments()" type="button" class="btn btn-default btn-lg btn-block">
+                Recalculate
+                <div data-bind="visible: Recalculate" class="button-load-spinner"></div>
+            </button>
+            <!-- /ko -->
         </div>
         <div class="tabbable" id="Summary" style="display:none">
             <form>
                 <fieldset>
                     <div class=row>
                         <div class='col-sm-3'>
-                            <div class="form-group">
-                                <label for="MortgageAmount">Mortgage Amount</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">£</div>
-                                    <input data-bind="value: MortgageAmount" type="text" class="form-control" id="MortgageAmount" placeholder="---" readonly> </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'MortgageAmount', prepend: '£', isNumeric: true, name: 'Mortgage Amount', value: MortgageAmount, readonly: true}"></div>
                         </div>
                         <div class='col-sm-3'>
-                            <div class="form-group">
-                                <label for="GrandTotal">Total Repayment over period</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">£</div>
-                                    <input data-bind="value: GrandTotal" type="text" class="form-control" id="GrandTotal" placeholder="---" readonly> </div>
-                            </div>
+                            <div data-bind="textInput: {id: 'GrandTotal', prepend: '£', isNumeric: true, name: 'Total Repayment over period', value: GrandTotal, readonly: true}"></div>
                         </div>
                     </div>
                 </fieldset>
