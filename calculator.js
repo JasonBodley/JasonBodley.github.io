@@ -82,8 +82,7 @@ $(function () {
         var self = this;
         self.EquityLoanMonth = (5 * 12);
         self.Base_Interest = 0.0175;
-        self.Base_RPI = 0.015;
-        self.RPI_Increase = 0.01;
+        self.Base_RPI = 0.02;
         self.MortgageAmount = mortgageAmount;
         self.EquityLoanAmount = equityLoanAmount;
         self.InitialRate = initialRate;
@@ -108,9 +107,8 @@ $(function () {
                 while (diff >= 12) {
                     diff -= 12;
                     interest = (interest + (interest * rpi));
-                    rpi += self.RPI_Increase;
                 }
-                self.EquityLoanInterestPercentage(interest.toFixed(4));
+                self.EquityLoanInterestPercentage((interest * 100).toFixed(2));
                 var total = interest * self.EquityLoanAmount;
                 var amount = (total / 12.00);
                 return parseFloat(amount).toFixed(2);
@@ -227,6 +225,6 @@ $(function () {
             return self.Rent() * self.HowLongUntil();
         });
     };
-    ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 1, 650, 6));
+    ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 1));
     $input.blur();
 });

@@ -1,6 +1,17 @@
+div.fixed-sized-table-wrapper {
+    max-height: 480px;
+    overflow: auto;
+}
+
+div.fixed-sized-table-wrapper > table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
 fieldset.breakdown p text {
     color: green;
     font-style: italic;
+    font-weight: bold;
 }
 
 .nav-tabs > li > a:hover {
