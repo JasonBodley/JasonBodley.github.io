@@ -106,7 +106,7 @@ $(function () {
                 var rpi = self.Base_RPI;
                 while (diff >= 12) {
                     diff -= 12;
-                    interest = (interest + (interest * rpi));
+                    interest = (interest + (interest * (rpi + 0.01)));
                 }
                 self.EquityLoanInterestPercentage((interest * 100).toFixed(2));
                 var total = interest * self.EquityLoanAmount;

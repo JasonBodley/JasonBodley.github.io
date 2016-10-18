@@ -78,10 +78,10 @@
                     <legend>Rent Details</legend>
                     <div class='row'>
                         <div class='col-md-3 col-sm-4 col-xs-12'>
-                            <div data-bind="textInput: {id: 'Rent', prepend: '£', append: 'PCM', isNumeric: true, decimalplaces: 2, name: 'Rent Amount', value: Rent}"></div>
+                            <div data-bind="textInput: {id: 'Rent', prepend: '£', append: 'PCM', isNumeric: true, decimalplaces: 2, name: 'Rent Amount', value: Rent, placeholder: 'E.g. 650.00'}"></div>
                         </div>
                         <div class='col-md-3 col-sm-4 col-xs-12'>
-                            <div data-bind="textInput: {id: 'HowLongUntil', append: 'Months', type: 'number', name: 'Time to wait', value: HowLongUntil}"></div>
+                            <div data-bind="textInput: {id: 'HowLongUntil', append: 'Months', type: 'number', name: 'Time to wait', value: HowLongUntil, placeholder: 'E.g. 12'}"></div>
                         </div>
                     </div>
                     <!-- ko if: Waste -->
