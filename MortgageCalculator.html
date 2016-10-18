@@ -99,7 +99,7 @@
                         <th> Repayment Amount (£) </th>
                         <!-- ko if: EquityLoan() === true -->
                         <th> Equity Loan Interest (%) </th>
-                        <th> Equity Loan Interest (£) </th>
+                        <th> Equity Loan Interest/Fees (£) </th>
                         <!-- /ko -->
                         <th> Total (£) </th>
                     </thead>
@@ -142,30 +142,30 @@
                 <fieldset class="breakdown">
                     <legend>Details</legend>
                     <p>So, you're looking at a property that costs £
-                        <text data-bind="text: PropertyValue"></text> and you want to put down a
+                        <text data-bind="currencyText: {value:PropertyValue}"></text> and you want to put down a
                         <text data-bind="text: DepositPercentage"></text>% deposit of £
-                        <text data-bind="text: Deposit"></text>.</p>
+                        <text data-bind="currencyText: {value:Deposit}"></text>.</p>
                     <!-- ko if: EquityLoan() === true -->
                     <p>You also want to take advantage of the Government's Help to Buy Equity Loan, which equates to £
-                        <text data-bind="text: EquityLoanAmount"></text>.</p>
+                        <text data-bind="currencyText: {value:EquityLoanAmount}"></text>.</p>
                     <!-- /ko -->
                     <p>This means your overall mortgage borrowing amount would be £
-                        <text data-bind="text: MortgageAmount"></text>.</p>
+                        <text data-bind="currencyText: {value:MortgageAmount}"></text>.</p>
                     <p></p>
                     <p>You want your mortgage term will be
                         <text data-bind="text: MortgageTermYears"></text> years and will have an initial rate of
-                        <text data-bind="text: InitialRate"></text>% for the first
+                        <text data-bind="currencyText: {value:InitialRate}"></text> % for the first
                         <text data-bind="text: InitialTerm"></text> months and will then increase to a variable rate (currently
-                        <text data-bind="text: VariableRate"></text>%).</p>
+                        <text data-bind="currencyText: {value:VariableRate}"></text> %).</p>
                     <!-- ko if: ProjectedPropertyValue -->
                     <p>Based on an esitmated annual increase of property valuation of
-                        <text data-bind="text: EstimatedValueIncreasePercentage"></text>%, your property could be worth £
-                        <text data-bind="text: ProjectedPropertyValue"></text> in
+                        <text data-bind="currencyText: {value:EstimatedValueIncreasePercentage}"></text>%, your property could be worth £
+                        <text data-bind="currencyText: {value:ProjectedPropertyValue}"></text> in
                         <text data-bind="text: MortgageTermYears"></text> years time.</p>
                     <!-- ko if: EquityLoan() === true -->
                     <p>However, you will be required to pay the government back the percentage value of the equity loan which equates to £
-                        <text data-bind="text: ProjectedEquityLoanPayment"></text> - meaning you will receive £
-                        <text data-bind="text: ProjectedWithEquityLoan"></text> from the sale of the property.</p>
+                        <text data-bind="currencyText: {value:ProjectedEquityLoanPayment}"></text> - meaning you will receive £
+                        <text data-bind="currencyText: {value:ProjectedWithEquityLoan}"></text> from the sale of the property.</p>
                     <!-- /ko -->
                     <!-- /ko -->
                 </fieldset>

@@ -6,6 +6,7 @@ $(function () {
         var id = $(this).data("id");
         $("#" + id).show();
     });
+    var doConvert = function (element, valueAccessor, dp) {};
     ko.bindingHandlers.textInput = {
         init: function (element, valueAccessor) {
             var va = ko.unwrap(valueAccessor());
@@ -77,12 +78,32 @@ $(function () {
             $(element).find("input").blur();
         }
     };
+    ko.bindingHandlers.currencyText = {
+        convert: function (element, valueAccessor) {
+            var va = ko.unwrap(valueAccessor());
+            var value = ko.unwrap(va.value);
+            if (value && !isNaN(value)) {
+                var v = parseFloat(value);
+                var mValue = v.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+                $(element).text(mValue);
+            }
+            else {
+                $(element).text("---");
+            }
+        }
+        , init: function (element, valueAccessor) {
+            ko.bindingHandlers.currencyText.convert(element, valueAccessor);
+        }
+        , update: function (element, valueAccessor, allBindings) {
+            ko.bindingHandlers.currencyText.convert(element, valueAccessor);
+        }
+    };
     var $input = $("input");
     var PaymentModel = function (month, mortgageAmount, equityLoanAmount, initialRate, variableRate, initialTerm, totalTerm) {
         var self = this;
         self.EquityLoanMonth = (5 * 12);
         self.Base_Interest = 0.0175;
-        self.Base_RPI = 0.02;
+        self.Base_RPI = 0.05;
         self.MortgageAmount = mortgageAmount;
         self.EquityLoanAmount = equityLoanAmount;
         self.InitialRate = initialRate;
@@ -100,6 +121,7 @@ $(function () {
         });
         self.EquityLoanInterestPercentage = ko.observable();
         self.EquityLoanInterest = ko.computed(function () {
+            var amount = 1;
             if ((self.Month() > self.EquityLoanMonth)) {
                 var diff = self.Month() - self.EquityLoanMonth;
                 var interest = self.Base_Interest;
@@ -110,13 +132,12 @@ $(function () {
                 }
                 self.EquityLoanInterestPercentage((interest * 100).toFixed(2));
                 var total = interest * self.EquityLoanAmount;
-                var amount = (total / 12.00);
-                return parseFloat(amount).toFixed(2);
+                amount += (total / 12.00);
             }
             else {
                 self.EquityLoanInterestPercentage("---");
-                return "---"
             }
+            return parseFloat(amount).toFixed(2);
         });
         self.Total = ko.computed(function () {
             var total = 0.00;
@@ -187,7 +208,7 @@ $(function () {
             });
             return total.toFixed(2);
         });
-        self.DepositPercentagesList = ko.observableArray([5, 10]);
+        self.DepositPercentagesList = ko.observableArray([5, 10, 20, 40]);
         self.EstimatedValueIncreasePercentage = ko.observable(evip);
         self.ProjectedPropertyValue = ko.computed(function () {
             if (self.PropertyValue() && self.EstimatedValueIncreasePercentage() && self.MortgageTermYears()) {
@@ -226,5 +247,4 @@ $(function () {
         });
     };
     ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 1));
-    $input.blur();
 });
