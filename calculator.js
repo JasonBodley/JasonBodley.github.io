@@ -122,7 +122,7 @@ $(function () {
         self.EquityLoanInterestPercentage = ko.observable();
         self.EquityLoanInterest = ko.computed(function () {
             var amount = 1;
-            if ((self.Month() > self.EquityLoanMonth)) {
+            if (equityLoanAmount > 0 && (self.Month() > self.EquityLoanMonth)) {
                 var diff = self.Month() - self.EquityLoanMonth;
                 var interest = self.Base_Interest;
                 var rpi = self.Base_RPI;
@@ -246,5 +246,5 @@ $(function () {
             return self.Rent() * self.HowLongUntil();
         });
     };
-    ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 1));
+    ko.applyBindings(new ViewModel(180000, 2.00, 4.00, 24, 25, true, 5, 2.5));
 });
