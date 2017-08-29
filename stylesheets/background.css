@@ -53,7 +53,8 @@ h3.decorated span {
 }
 
 h3.decorated:before {
-  background: #ddd;
+  background: webkit-radial-gradient(ellipse at 70% 70%, #39c 8%, #23527c 42%, #39c 58%);
+  background: radial-gradient(ellipse at 70% 70%, #39c 8%, #23527c 42%, #39c 58%);
   content: "";
   display: block;
   height: 1px;
